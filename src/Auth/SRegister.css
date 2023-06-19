@@ -1,0 +1,73 @@
+/* .topText{
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 30px;
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bolder;
+    position: fixed;
+} */
+.topInfo{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    margin-top: 70px;
+}
+.topDetails{
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
+    font-size: 15px;
+}
+.register-page{ display: grid;
+    gap: 7rem;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    margin-top:70px;
+}
+.welcomeText{
+    font-size: 14px !important;
+}
+.contactText{
+    font-size: 13px;
+}
+.registerImage{
+    margin: 40px 0px 0px 8%;
+    position: fixed;
+}
+.loginBnt{
+    text-decoration: none;
+    font-size: larger;
+}
+.label{
+    margin: 7px 0px 5px 0px;
+    font-size:small;
+}
+.inputBox{
+    width: 29.2rem;
+    height: 35px;
+    border: 1px solid bolder(0, 2, 0);
+    border-radius: 3px;
+    padding-left: 10px;
+}
+.right-details{
+    margin: 5% 0px 10% 0px;
+}
+.callNumber{
+    color: rgb(234, 8, 8);
+    text-decoration: none;
+}
+.forgetPass{
+    color: red !important;
+    margin-left: 35% !important;
+    cursor: pointer;
+}
+.submit{   
+    display: block !important;
+    margin-top: 10px !important;
+    width: 29.4rem;
+    height: 35px;
+    text-transform: capitalize !important;
+    font-size: medium !important;
+}
