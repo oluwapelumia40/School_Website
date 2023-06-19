@@ -1,0 +1,48 @@
+.headerText{
+    padding: 0px 0px 0px 35%;
+}
+.login-page{ display: grid;
+    gap: 7rem;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+.loginImage{
+    margin: 40px 0px 0px 8%;
+}
+.label{
+    display: block;
+    margin: 7px 0px 5px 0px;
+    font-size:medium;
+}
+.inputBox{
+    width: 29.2rem;
+    height: 30px;
+    border: 1px solid rgb(0, 2, 0);
+    border-radius: 3px;
+    padding-left: 10px;
+}
+.right-login{
+    margin-top: 20%;
+}
+.registerLink{
+    color: green;
+    padding-top: 5px;
+    padding-left: 15px;
+    cursor: pointer;
+    text-decoration: none ;
+}
+.forgetPass{
+    color: red;
+    margin-left: 35%;
+    cursor: pointer;
+    text-decoration: none;
+}
+.submit{
+    
+    display: block !important;
+    margin-top: 10px !important;
+    width: 29.4rem;
+    height: 35px;
+    text-transform: capitalize !important;
+    font-size: medium !important;
+}
