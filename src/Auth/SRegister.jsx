@@ -28,7 +28,7 @@ export default function SLogin() {
     <Typography variant='h5'> Admission Portal </Typography>
         <Typography gutterBottom className='welcomeText'> Welcome to LAUTECH Admission Portal. <br></br>Register to start an application or login if you already created an account. </Typography>
             <Typography variant='h6'> Admission Registration </Typography>
-                <Typography gutterBottom> Please fill in the details below to register for admission.</Typography>
+                <Typography gutterBottom className='welcomeText'> Please fill in the details below to register for admission.</Typography>
                     <p className='contactText'> Contact support on this number Bimbo <a href="tel: 09094689329" className='callNumber'> 09094689329 </a> and Sola <a href="tel: 08064240134" className='callNumber'> 08064240134 </a> </p> 
                         <Link to="/" className='loginBnt'> Click here to Login your account </Link>
                 
