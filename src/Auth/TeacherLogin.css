@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto:wght@400&display=swap');
+.body {
+    width: min(100% - 3rem, 65ch);
+    margin-inline: 1rem;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
+}
+
+.loginImage {
+    margin-top: 10%;
+    margin-left: -20px;
+}
+
+h1 {
+    font-family: Roboto;
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+.loginPage h1 {
+    margin-bottom: 40px;
+}
+
+.loginPage {
+    margin-top: 40%;
+}
+
+section{
+    display: grid;
+    align-items: right;
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+.label {
+    font-family: Roboto;
+}
+
+.inputBox {
+    width: 25rem;
+    height: 30px;
+    border: 1px solid rgb(0, 2, 0);
+    border-radius: 3px;
+    padding-left: 10px;
+    font-family: Roboto;
+}
+
+::placeholder {
+    font-family: inter;
+}
+
+.submit {
+    display: block !important;
+    margin-top: 15px !important;
+    width: 5.9rem;
+    height: 35px;
+    text-transform: capitalize !important;
+    font-size: medium !important;
+    background-color: red !important;
+}
+
+section{
+    display: flex;
+    margin-top: 1rem;
+    font-weight: bolder;
+}
+
+section .forgetPassword {
+    text-decoration: none;
+    color: green;
+    margin-right: 14rem;
+}
+
+section .register {
+    justify-content: right;
+    text-decoration: none;
+    color: green;
+}
