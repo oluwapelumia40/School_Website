@@ -1,11 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./SRegister.css"
 import eLearning from "../images/eLearning.png"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AppBar, Button, CssBaseline, Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import axios from "axios"
 
 export default function SLogin() {
+    const [allFaculty, setAllFaculty] = useState([])
+    const [first_name, setFirst_name] = useState("")
+    const [last_name, setLast_name] = useState("")
+    const [other_name, setOther_name] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [conPassword, setConPassword] = useState("")
+    const [dob, setDob] = useState("")
+    const [mobile, setMobile] = useState("")
+    const [faculty, setFaculty] = useState("")
+    const [depart, setDepart] = useState("")
+    const [level, setLevel] = useState("")
+    const [semester, setSemester] = useState("")
+    const [session, setSession] = useState("")
+    const [add, setAdd] = useState("")
+    useEffect(()=>{
+        getFaculty()
+    },[])
+    const getFaculty = async() =>{
+        const Faculty = await axios.get("https://schoolmanagement-tabc.onrender.com/api/faculty")
+        if(Faculty){
+            setAllFaculty(Faculty.data)
+            
+        }
+    }
+  
   return (
     <div>
         <CssBaseline/>
@@ -103,12 +130,22 @@ export default function SLogin() {
                     className='label'>
                     Faculty
                 </label>
-                    <input 
-                        className='inputBox' 
-                        type="text"
-                        name="faculty"
-                        placeholder='Enter your faculty, e.g Science'
-                        required />
+                    <select
+                    className='inputBox'
+                    required
+                    value={faculty}
+                    onChange={(e)=>setFaculty(e.target.value)}
+                    >
+                        <option>
+                            Select a faculty
+                        </option>
+                        {
+                            allFaculty.map((itm, indx)=>(
+                                <option key={indx} value={itm.faculty}>{itm.faculty}</option>
+                            ))
+                        }
+                        
+                    </select>
 
                 {/* department */}
                 <label
@@ -116,12 +153,24 @@ export default function SLogin() {
                     className='label'>
                     Department
                 </label>
-                    <input 
-                        className='inputBox' 
-                        type="text"
-                        name="department"
-                        placeholder='Enter your department, e.g Computer Science'
-                        required />
+                <select
+                    className='inputBox'
+                    required
+                    value={depart}
+                    onChange={(e)=>setDepart(e.target.value)}
+                    >
+                        <option>Selet a Department</option>
+                        {
+                            allFaculty.filter((itm)=>itm.faculty === faculty)?.map((itm, index)=>(
+                                itm.depart?.map((itm, indx)=>(
+                                    
+                                    <option key={indx} value={itm.name}>{itm.name}</option>
+                                ))
+                            ))
+                        }
+                        
+                    </select>
+
 
                 {/* level */}
                 <label
