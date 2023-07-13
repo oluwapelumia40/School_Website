@@ -1,6 +1,6 @@
 import React from 'react'
 import './SLogin.css';
-import eLearning from "../images/eLearning.png"
+import eLearning from "../../images/eLearning.png"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AppBar, Button, CssBaseline, Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';

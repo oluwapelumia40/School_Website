@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./SRegister.css"
-import eLearning from "../images/eLearning.png"
+import eLearning from "../../images/eLearning.png"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AppBar, Button, CssBaseline, Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
@@ -32,6 +32,11 @@ export default function SLogin() {
             
         }
     }
+    const handleSubmit = async(e) =>{
+        e.preventDefault()
+        const data = await axios.post("https://schoolmanagement-tabc.onrender.com/api/auth/register", {first_name, last_name, other_name,email, password, conPassword, dob, mobile, faculty, depart, level, semester, session, add} )
+        console.log(data)
+    }
   
   return (
     <div>
@@ -60,8 +65,14 @@ export default function SLogin() {
                         <Link to="/" className='loginBnt'> Click here to Login your account </Link>
                 
                 {/* first name */}
+                {/* <form onSubmit={handleSubmit()}>
+                    jfmfd
+                    mfkj 
+                    fjkk
+                    //firts case
+                </form> */}
                 <label
-                    htmlFor='firstName'
+                    htmlFor='first_Name'
                     className='label'>
                     First Name
                 </label>
@@ -69,12 +80,14 @@ export default function SLogin() {
                         className='inputBox' 
                         type="text"
                         name="firstName"
+                        value={first_name}
+                        onChange={(e)=>setFirst_name(e.target.value)}
                         placeholder='Enter your firstName' 
                         required />  
 
                 {/* surname */}
                 <label
-                    htmlFor='surname'
+                    htmlFor='last_name'
                     className='label'>
                     Surname
                 </label>
@@ -83,11 +96,14 @@ export default function SLogin() {
                         type="text"
                         name="surname"
                         placeholder='Enter your surname' 
-                        required />
+                        required
+                        value={last_name}
+                        onChange={(e)=>setLast_name(e.target.value)}
+                        />
 
                 {/* othername */}
                 <label
-                    htmlFor='otherName'
+                    htmlFor='other_name'
                     className='label'>
                     Other name(s)
                 </label>
@@ -96,7 +112,10 @@ export default function SLogin() {
                         type="text"
                         name="otherName"
                         placeholder='Enter your other name (s)' 
-                        required />
+                        required
+                        value={other_name}
+                        onChange={(e)=>setOther_name(e.target.value)}
+                        />
 
                 {/* email address */}
                 <label
@@ -109,11 +128,43 @@ export default function SLogin() {
                         type="email"
                         name="email"
                         placeholder='Enter your Email address, e.g example@gmail.com'
-                        required /> 
-                
+                        required 
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
+                        /> 
+                {/* date of birth */}
+                <label
+                    htmlFor='dob'
+                    className='label'>
+                    Date of birth
+                </label>
+                    <input 
+                        className='inputBox'
+                        id="datePicker" 
+                        type="date"
+                        name="dob"
+                        placeholder='Enter Your date of birth, e.g 20/10/2023'
+                        required 
+                        value={dob}
+                        onChange={(e)=>setDob(e.target.value)}
+                        /> 
+                {/* Home address */}
+                <label
+                    htmlFor='add'
+                    className='label'>
+                    Home Address
+                </label>
+                    <textarea 
+                        className='inputBox'
+                        name="add"
+                        placeholder='Enter Your Home address'
+                        required 
+                        value={add}
+                        onChange={(e)=>setAdd(e.target.value)}
+                        /> 
                 {/* Phone number */}
                 <label
-                    htmlFor='phoneNum'
+                    htmlFor='mobile'
                     className='label'>
                     Phone Number
                 </label>
@@ -122,7 +173,10 @@ export default function SLogin() {
                          type="text"
                          name="phoneNum"
                          placeholder='07031128163'
-                         required />
+                         required 
+                         value={mobile}
+                        onChange={(e)=>setMobile(e.target.value)}
+                         />
 
                 {/* faculty */}
                 <label
@@ -149,7 +203,7 @@ export default function SLogin() {
 
                 {/* department */}
                 <label
-                    htmlFor='department'
+                    htmlFor='depart'
                     className='label'>
                     Department
                 </label>
@@ -178,12 +232,32 @@ export default function SLogin() {
                     className='label'>
                     Level
                 </label>
-                    <input 
-                        className='inputBox' 
-                        type="text"
-                        name="level"
-                        placeholder='Enter your level, e.g 300L'
-                        required />
+                <select
+                    className='inputBox'
+                    required
+                    value={level}
+                    onChange={(e)=>setLevel(e.target.value)}
+                    >
+                        <option value="100">
+                            100
+                        </option>
+                        <option value="200">
+                            200
+                        </option>
+                        <option value="300">
+                            300
+                        </option>
+                        <option value="400">
+                            400
+                        </option>
+                        <option value="500">
+                            500
+                        </option>
+                        <option value="600">
+                            600
+                        </option>
+                    </select>
+
 
                 {/* password */}
                 <label
@@ -196,7 +270,10 @@ export default function SLogin() {
                         type="password"
                         name="password"
                         placeholder='Enter your password'
-                        required />
+                        required 
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
+                        />
 
                 {/* confirm password */}
                 <label
@@ -209,11 +286,51 @@ export default function SLogin() {
                         type="password"
                         name="confirmPassword"
                         placeholder='Confirm your password'
-                        required />
+                        required 
+                        value={conPassword}
+                        onChange={(e)=>setConPassword(e.target.value)}/>
+
+                 {/* semester */}
+                 <label
+                    htmlFor='semester'
+                    className='label'>
+                    Semester
+                </label>
+                <select
+                    className='inputBox'
+                    required
+                    value={semester}
+                    onChange={(e)=>setSemester(e.target.value)}
+                    >
+                        <option value="first">
+                            first
+                        </option>
+                        <option value="second">
+                            second
+                        </option>
+                        
+                    </select>
+                     {/* level */}
+                <label
+                    htmlFor='level'
+                    className='label'>
+                    Session
+                </label>
+                <select
+                    className='inputBox'
+                    required
+                    value={session}
+                    onChange={(e)=>setSession(e.target.value)}
+                    >
+                        <option value="2023/2024">
+                            2023/2024
+                        </option>
+                      
+                </select>
 
             <div>
                     <div className="submitBtn">
-                        <Button className='submit' variant='contained' color="primary"> Register </Button>
+                        <Button className='submit' variant='contained' color="primary" onClick={handleSubmit}> Register </Button>
                     </div>
             </div>
             </div>
