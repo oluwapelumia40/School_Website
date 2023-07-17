@@ -32,16 +32,6 @@ export default function SLogin() {
             
         }
     }
-<<<<<<< HEAD:src/Auth/SRegister.jsx
-
-    console.log({level})
-=======
-    const handleSubmit = async(e) =>{
-        e.preventDefault()
-        const data = await axios.post("https://schoolmanagement-tabc.onrender.com/api/auth/register", {first_name, last_name, other_name,email, password, conPassword, dob, mobile, faculty, depart, level, semester, session, add} )
-        console.log(data)
-    }
->>>>>>> 177e1c6e74fa0a32f75e5e7c5889faa6f4a3879e:src/Auth/Student/SRegister.jsx
   
   return (
     <div>
@@ -249,7 +239,6 @@ export default function SLogin() {
                 </label>
                 <select
                     className='inputBox'
-<<<<<<< HEAD:src/Auth/SRegister.jsx
                     value={level}
                     onChange={(e)=>setLevel(e.target.value)}
                     required>
@@ -288,32 +277,6 @@ export default function SLogin() {
                     <option value="2022/2023"> 2022/2023 </option>
                     <option value="2023/2024"> 2023/2024 </option>
                 </select>
-=======
-                    required
-                    value={level}
-                    onChange={(e)=>setLevel(e.target.value)}
-                    >
-                        <option value="100">
-                            100
-                        </option>
-                        <option value="200">
-                            200
-                        </option>
-                        <option value="300">
-                            300
-                        </option>
-                        <option value="400">
-                            400
-                        </option>
-                        <option value="500">
-                            500
-                        </option>
-                        <option value="600">
-                            600
-                        </option>
-                    </select>
-
->>>>>>> 177e1c6e74fa0a32f75e5e7c5889faa6f4a3879e:src/Auth/Student/SRegister.jsx
 
                 {/* password */}
                 <label
@@ -386,11 +349,7 @@ export default function SLogin() {
 
             <div>
                     <div className="submitBtn">
-<<<<<<< HEAD:src/Auth/SRegister.jsx
                         <Button className='registerLinkBtn' variant='contained' color="primary"> Register </Button>
-=======
-                        <Button className='submit' variant='contained' color="primary" onClick={handleSubmit}> Register </Button>
->>>>>>> 177e1c6e74fa0a32f75e5e7c5889faa6f4a3879e:src/Auth/Student/SRegister.jsx
                     </div>
             </div>
             </div>
