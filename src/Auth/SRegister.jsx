@@ -32,6 +32,8 @@ export default function SLogin() {
             
         }
     }
+
+    console.log({level})
   
   return (
     <div>
@@ -124,6 +126,16 @@ export default function SLogin() {
                          placeholder='07031128163'
                          required />
 
+                {/* Date of Birth */}
+                <label
+                htmFor='dob'
+                className='label'>
+                    DOB
+                </label>
+                <input type='date' className='inputBox' 
+                value={dob} 
+                onChange={(e)=>setDob(e.target.value)}/>
+
                 {/* faculty */}
                 <label
                     htmlFor='faculty'
@@ -178,12 +190,46 @@ export default function SLogin() {
                     className='label'>
                     Level
                 </label>
-                    <input 
-                        className='inputBox' 
-                        type="text"
-                        name="level"
-                        placeholder='Enter your level, e.g 300L'
-                        required />
+                <select
+                    className='inputBox'
+                    value={level}
+                    onChange={(e)=>setLevel(e.target.value)}
+                    required>
+                    <option value="100"> 100 Level</option>
+                    <option value="200"> 200 Level</option>
+                    <option value="300"> 300 Level</option>
+                    <option value="400"> 400 Level</option>
+                    <option value="100"> 500 Level</option>
+                    <option value="100"> 600 Level</option>
+                    </select>
+
+                {/* semester */}
+                <label
+                    htmlFor='semester'
+                    className='label'>
+                    Semester
+                </label>
+                <select
+                className='inputBox'
+                value={semester}
+                onChange={(e)=>setSemester(e.target.value)}>
+                    <option value="First Semester"> First Semester </option>
+                    <option value="First Semester"> Second Semester</option>
+                </select>
+
+                {/* session */}
+                <label
+                    htmlFor='session'
+                    className='label'>
+                    Session
+                </label>
+                <select
+                className='inputBox'
+                value={session}
+                onChange={(e)=>setSession(e.target.value)}>
+                    <option value="2022/2023"> 2022/2023 </option>
+                    <option value="2023/2024"> 2023/2024 </option>
+                </select>
 
                 {/* password */}
                 <label
@@ -213,7 +259,7 @@ export default function SLogin() {
 
             <div>
                     <div className="submitBtn">
-                        <Button className='submit' variant='contained' color="primary"> Register </Button>
+                        <Button className='registerLinkBtn' variant='contained' color="primary"> Register </Button>
                     </div>
             </div>
             </div>

@@ -19,7 +19,7 @@ export default function SLogin() {
 
     <div className='login-page'>
        <div className='left-login'>
-            <LazyLoadImage src={eLearning} className='loginImage'/>
+            <LazyLoadImage src={eLearning} className='loginPageImage'/>
        </div> 
        <div className='right-login'>
         <Typography variant='h4' gutterBottom> Login </Typography>
@@ -34,7 +34,7 @@ export default function SLogin() {
                     type="text"
                     name="matricNo"
                     placeholder='2014070501048'
-                    /> <br></br><br></br>
+                    /> <br></br>
             
             <label
                 htmlFor='password'
@@ -45,13 +45,12 @@ export default function SLogin() {
                     className='inputBox' 
                     type="password"
                     name="password"
-                    placeholder='Password123'
-                    gutterBottom/>
-            <div> 
-                <Link to="/sregister" className='registerLink'> Register? </Link>
-                    <Link to="#" className='forgetPass'> Forget Password?</Link>
+                    placeholder='Password123'/>
+            <div className='loginLink'> 
+                <Link to="/sregister" className='studentRegisterLink'> Register? </Link>
+                    <Link to="#" className='forgetPassLink'> Forget Password?</Link>
                         <div className="submitBtn">
-                            <Button className='submit' variant='contained' color="primary"> Login</Button>
+                            <Button className='submitLoginBtn' variant='contained' color="primary"> Login</Button>
                         </div>
             </div>
        </div>

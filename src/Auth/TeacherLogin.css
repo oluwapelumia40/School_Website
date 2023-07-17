@@ -66,18 +66,20 @@ section{
 
 section{
     display: flex;
-    margin-top: 1rem;
-    font-weight: bolder;
+    margin-top: 0.5rem;
+    font-family: Inter;
+    font-size: 13px;
 }
 
 section .forgetPassword {
+    justify-content: right;
     text-decoration: none;
-    color: green;
-    margin-right: 14rem;
+    color: red;
 }
 
 section .register {
-    justify-content: right;
     text-decoration: none;
     color: green;
+    margin-left: 15px;
+    margin-right: 14rem !important;
 }
