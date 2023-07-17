@@ -67,11 +67,12 @@
     margin-left: 35% !important;
     cursor: pointer;
 }
-.submit{   
+.registerLinkBtn{   
     display: block !important;
     margin-top: 10px !important;
-    width: 29.4rem;
+    width: 25.2rem;
     height: 35px;
     text-transform: capitalize !important;
     font-size: medium !important;
+    background-color: rgb(250, 45, 45) !important;
 }

@@ -1,10 +1,13 @@
 import { Button } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 import './TeacherLogin.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link } from 'react-router-dom'
 
 export default function TeacherLogin() {
+    const[user, setUser] = useState("")
+    const[password, setPassword] = useState("")
+
   return (
     <div className='body'>
         <div className="wrapper">
@@ -22,8 +25,10 @@ export default function TeacherLogin() {
                     <input 
                         className='inputBox' 
                         type="text"
-                        name="matricNo"
-                        placeholder='2014070501048'
+                        name="userId"
+                        placeholder='2022000037'
+                        value={user}
+                        onChange={(e)=>setUser(e.target.value)}
                         /> 
                 </div>
                 <div className="form-group">
@@ -36,13 +41,15 @@ export default function TeacherLogin() {
                         className='inputBox' 
                         type="password"
                         name="matricNo"
-                        placeholder='2014070501048'
+                        placeholder='2022000037'
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
                         /> 
                 </div>
                 <Button className='submit' variant='contained' color="primary"> Login</Button>
                 <section>
-                <Link to="#" className='forgetPassword'> Forget Password?</Link>
-                <Link to="#" className='register'> Register</Link>
+                    <Link to="/teacherregister" className='register'> Register</Link>
+                    <Link to="#" className='forgetPassword'> Forget Password?</Link>
                 </section>
             </div>
         </div>
