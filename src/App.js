@@ -15,9 +15,9 @@ function App() {
         <Routes>
 
           {/* Student Route */}
-          <Route path="/" exact element={<SLogin/>}/>
+          <Route path="/login" exact element={<SLogin/>}/>
           <Route path="/sregister" exact element={<SRegister/>}/>
-          <Route path="/verify" exact element={<SVerify/>}/>
+          <Route path="/student/:id/verify/:token" exact element={<SVerify/>}/>{/* Based on the url of the mail sent to the client */}
           <Route path="/reset" exact element={<SReset/>}/>
           <Route path="/reset/:id" exact element={<SResetNew/>}/>
 

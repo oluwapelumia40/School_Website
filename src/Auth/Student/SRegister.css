@@ -76,3 +76,7 @@
     font-size: medium !important;
     background-color: rgb(250, 45, 45) !important;
 }
+button:disabled{
+    cursor: not-allowed;
+    color: red;
+}
