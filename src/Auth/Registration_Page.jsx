@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import './Registration_Page.css'
 
-import { Email, Person} from '@material-ui/icons';
-import { Password } from '@mui/icons-material';
+
 
 export const Registration_Page = () => {
 
@@ -21,10 +20,10 @@ export const Registration_Page = () => {
     const [program, setProgram] = useState("")
     const [level, setLevel] = useState("")
     const [semester, setSemester] = useState("")
-    const [qualification, setQualification] = useState("")
     const [olevel, setOlevel] = useState("")
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
+    const [diploma, setDiploma] = useState("")
+    const [qualification, setQualification] = useState("")
+
 
   return (
 
@@ -151,6 +150,7 @@ export const Registration_Page = () => {
                  placeholder='address'
                 value={address} 
               onChange={(e)=>setAddress(e.target.value)}
+              spellCheck="true"
               required/>
             </div>
 
@@ -200,7 +200,8 @@ export const Registration_Page = () => {
                   required>
                     <option value="" disabled selected>Select program</option>
                     <option value="lodlc"> LODLC </option>
-                    <option value="fulltime"> Fulltime </option>
+                    <option value="fulltime"> Full-time </option>
+                    <option value="partime"> Part-time </option>
                   </select>
             </div>
 
@@ -211,9 +212,9 @@ export const Registration_Page = () => {
                   onChange={(e)=>setLevel(e.target.value)}
                   required>
                     <option value="" disabled selected>Select level</option>
-                    <option value="100"> LODLC </option>
-                    <option value="200"> Fulltime </option>
-                    <option value="200"> Fulltime </option>
+                    <option value="100"> 100 </option>
+                    <option value="200"> 200 </option>
+                    <option value="300"> 300 </option>
                   </select>
             </div>
 
@@ -233,29 +234,66 @@ export const Registration_Page = () => {
               <span className='program'>
                 Qualification Details
               </span>
+              <details className='details-style'> you are to upload your certificate according to the options that you select, you are also to upload in Jpeg/PDF at (20KB) per details.</details>
             </div>
 
+            <div className="input-field">
+               <select 
+                  value={olevel}
+                  onChange={(e)=>setOlevel(e.target.value)}
+                  required>
+                    <option value="" disabled selected>O'Level</option>
+                    <option value="waec"> WAEC </option>
+                    <option value="neco"> NECO </option>
+                    <option value="nabteb"> NABTEB </option>
+                  </select>
+            </div>
+            <div className="input-field">
+               <select 
+                  value={diploma}
+                  onChange={(e)=>setDiploma(e.target.value)}
+                  required>
+                    <option value="" disabled selected>Diploma</option>
+                    <option value="ond"> OND </option>
+                    <option value="nce"> NCE </option>
+                  </select>
+            </div>
             <div className="input-field">
                <select 
                   value={qualification}
                   onChange={(e)=>setQualification(e.target.value)}
                   required>
-                    <option value="" disabled selected>Select level</option>
-                    <option value="ssce"> SSCE </option>
-                    <option value="ond"> OND </option>
-                    <option value="hnd"> HND </option>
+                    <option value="" disabled selected> Bachalor/Higher Diploma</option>
+                    <option value="bsc"> Bachalor Degree </option>
+                    <option value="HND"> HND </option>
                   </select>
             </div>
 
-            <div className="input-file">
-              <label htmlFor="olevel"> Highest Qualification</label>
+          <div className="input-file-grid">
+            <div className="input-file file-space">
+              <label htmlFor="olevel"> </label>
               <input type="file" 
                   id="olevel-result"
                     name="olevel-result"
-                value={olevel} 
-              onChange={(e)=>setOlevel(e.target.value)}
               required/>
             </div>
+
+            <div className="input-file">
+              <label htmlFor="olevel"> </label>
+              <input type="file" 
+                  id="olevel-result"
+                    name="olevel-result"
+              required/>
+            </div>
+
+            <div className="input-file">
+              <label htmlFor="olevel"> </label>
+              <input type="file" 
+                  id="olevel-result"
+                    name="olevel-result"
+              required/>
+            </div>
+          </div>
 
             <button className='submitBtn'>Submit</button>
 

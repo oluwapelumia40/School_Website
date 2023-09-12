@@ -70,11 +70,13 @@
     padding-left: 70px;
     margin-top: 27px;
     font-size: 18px;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 .forget-password span{
     color: rgb(235, 108, 108);
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     text-transform: capitalize;
 }

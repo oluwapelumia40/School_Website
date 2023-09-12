@@ -73,6 +73,10 @@ form .field .input-field{
     font-weight: 500;
     color: #2e2e2e;
 }
+.program-details .details-style{
+    color: red;
+    font-size: 12.5px;
+}
 .input-field input, select, textarea{
     outline: none;
     font-size: 14px;
@@ -84,16 +88,22 @@ form .field .input-field{
     height: 42px;
     margin: 8px 0px;
 }
+.input-file-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 .input-file{
     margin-top: 10px;
-    padding-right: 50%;
 }
 .input-file input{
-    font-size: 16px;
+    font-size: 14px;
 }
 .input-file label{
     display: block;
     padding-bottom: 2px;
+}
+.input-file-grid .file-space{
+    padding-left: 10px;
 }
 .form-container form .submitBtn{
     align-items: center;

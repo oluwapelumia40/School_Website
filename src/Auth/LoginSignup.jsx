@@ -3,6 +3,7 @@ import './LoginSignup.css'
 
 import { Email} from '@material-ui/icons';
 import { Password } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 
 export default function LoginSignup() {
@@ -39,7 +40,7 @@ export default function LoginSignup() {
                 <input type="email" 
                  id="email"
                  name="email"
-                 placeholder='Email'
+                 placeholder='@example.com'
                  value={email} 
                  onChange={(e)=>setEmail(e.target.value)}/>
             </div>
@@ -64,7 +65,7 @@ export default function LoginSignup() {
             </div>}
 
         </div>
-            {action==="Sign Up"? <div></div> : <div className="forget-password"> <span> Lost Password? </span> </div>}
+            {action==="Sign Up"? <div></div> : <Link to="/forgetpassword" className="forget-password"> <span> Lost Password? </span> </Link>}
         
         <div className="submit-container">
             <div className={action==="Login"? "submit-btn gray":"submit-btn"} onClick={changedTitle}> Sign Up </div>
