@@ -1,27 +1,61 @@
 import React, { useState } from 'react'
 import './LoginSignup.css'
-
+import axios from "axios"
 import { Email} from '@material-ui/icons';
 import { Password } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+import { CircularProgress, Alert,Snackbar } from '@mui/material';
 
 
 export default function LoginSignup() {
     const [action, setAction] = useState("Login");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setPConfirmPassword] = useState("");
+    const [conPassword, setConPassword] = useState("");
+    const [error, setError] = useState("")
+    const [message, setMessage] = useState("")
+    const [isFetching, setIsFetching] = useState(false)
+     const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
 
     const changeTitle = () => {
-        return setAction("Login");
+        return setAction("Login"); setOpen(true);
     }
 
     const changedTitle = () => {
         return setAction("Sign Up");
     }
 
-    const handleSubmit = (e) =>{
-        e.preventDefault();
+    const handleSubmit = async(e) =>{
+        try{
+            setIsFetching(true)
+            setError("")
+            e.preventDefault();
+            const {data} = await axios.post("https://schoolmanagement-tabc.onrender.com/api/auth/register",{email, password, conPassword})
+            if(data){
+                setIsFetching(false)
+                setMessage(data.message)
+            }
+
+
+        }catch(error){
+                setIsFetching(false)
+                setError(error.response.data.error)
+                console.log(error)
+        }
+        
     };
 
 
@@ -60,18 +94,32 @@ export default function LoginSignup() {
                 <input type="password"
                  name="confirmPassword"
                  placeholder='confirmPassword'
-                 value={confirmPassword}
-                 onChange={(e)=>setPConfirmPassword(e.target.value)}/>
+                 value={conPassword}
+                 onChange={(e)=>setConPassword(e.target.value)}/>
             </div>}
 
         </div>
             {action==="Sign Up"? <div></div> : <Link to="/forgetpassword" className="forget-password"> <span> Lost Password? </span> </Link>}
         
         <div className="submit-container">
-            <div className={action==="Login"? "submit-btn gray":"submit-btn"} onClick={changedTitle}> Sign Up </div>
-            <div className={action==="Sign Up"? "submit-btn gray":"submit-btn"} onClick={changeTitle}>Login</div>
+            <button className={action==="Login"? "submit-btn gray":"submit-btn"} disabled={isFetching} type="submit" onClick={changedTitle}> 
+            {
+                isFetching ?
+                <CircularProgress size="12px" style={{color:"white"}}/>
+                :
+                "Sign Up"
+            }
+             </button>
+            <button className={action==="Sign Up"? "submit-btn gray":"submit-btn"} onClick={changeTitle}>Login</button>
+            
         </div>
+        <p style={{color:"red", marginTop:"10px", textAlign:"center"}}>{error}</p>
         </form>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                {message}
+              </Alert>
+      </Snackbar>
     </div>
   )
 }
