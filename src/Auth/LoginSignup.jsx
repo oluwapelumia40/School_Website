@@ -26,12 +26,12 @@ export default function LoginSignup() {
       return;
     }
 
-    setOpen(false);
+    
   };
 
 
     const changeTitle = () => {
-        return setAction("Login"); setOpen(true);
+        return setAction("Login"); 
     }
 
     const changedTitle = () => {
@@ -47,6 +47,7 @@ export default function LoginSignup() {
             if(data){
                 setIsFetching(false)
                 setMessage(data.message)
+                setOpen(false);
             }
 
 
