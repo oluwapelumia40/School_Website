@@ -50,7 +50,8 @@ export const Registration_Page = () => {
                 <input type="text" 
                   id="last_name"
                     name="surname"
-                 placeholder='Enter your surname'
+                  placeholder='Enter your surname'
+                 spellCheck="true"
                 value={surname} 
               onChange={(e)=>setSurname(e.target.value)}
               required/>
@@ -62,6 +63,7 @@ export const Registration_Page = () => {
                   id="first_name"
                     name="first_name"
                  placeholder='Enter your firstname'
+                 spellCheck="true"
                 value={first_name} 
               onChange={(e)=>setFirst_name(e.target.value)}
               required/>
@@ -73,6 +75,7 @@ export const Registration_Page = () => {
                   id="other_name"
                     name="other_name"
                  placeholder='Enter your other name(s)'
+                 spellCheck="true"
                 value={other_name} 
               onChange={(e)=>setOther_name(e.target.value)}
               required/>
@@ -275,6 +278,7 @@ export const Registration_Page = () => {
               <input type="file" 
                   id="olevel-result"
                     name="olevel-result"
+                    accept='.jpg .jpeg .pdf'
               required/>
             </div>
 
@@ -283,6 +287,7 @@ export const Registration_Page = () => {
               <input type="file" 
                   id="olevel-result"
                     name="olevel-result"
+                    accept='.jpg .jpeg .pdf'
               required/>
             </div>
 
@@ -291,6 +296,7 @@ export const Registration_Page = () => {
               <input type="file" 
                   id="olevel-result"
                     name="olevel-result"
+                    accept='.jpg .jpeg .pdf'
               required/>
             </div>
           </div>

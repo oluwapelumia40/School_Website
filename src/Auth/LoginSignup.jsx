@@ -1,12 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './LoginSignup.css'
 
 import { Email} from '@material-ui/icons';
 import { Password } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 export default function LoginSignup() {
+
+    // const registerURL = "https://schoolmanagement-tabc.onrender.com/api/auth/register";
+    // useEffect(()=> {
+    //     axios.get(registerURL).then(response() => {
+    //         setPost(response.data);
+    //     });
+    // }, []);
+
     const [action, setAction] = useState("Login");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -41,6 +50,7 @@ export default function LoginSignup() {
                  id="email"
                  name="email"
                  placeholder='@example.com'
+                 autoFocus
                  value={email} 
                  onChange={(e)=>setEmail(e.target.value)}/>
             </div>
@@ -51,6 +61,7 @@ export default function LoginSignup() {
                  id="password"
                  name="password"
                  placeholder='Password'
+                 autoFocus
                  value={password}
                  onChange={(e)=>setPassword(e.target.value)}/>
             </div>
